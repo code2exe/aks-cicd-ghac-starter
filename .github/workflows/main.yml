@@ -33,30 +33,31 @@ jobs:
           creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
 
 
-      # - name: ACR build
-      #   id: build-push-acr
-      #   uses: azure/acr-build@v1
-      #   with:
-      #     service_principal: ${{ secrets.service_principal }}
-      #     service_principal_password: ${{ secrets.service_principal_password }}
-      #     tenant: ${{ secrets.tenant }}
-      #     registry: ${{ secrets.registry }}
-      #     repository: ${{ secrets.repository }}
-      #     image:  ${{ secrets.CONTAINER_NAME }}
-      #     # folder: app/aks-nodejs
-      #     branch: main
-      #     tag: ${{ github.sha }}
+      - name: ACR build
+        id: build-push-acr
+        uses: azure/acr-build@v1
+        with:
+          service_principal: ${{ secrets.AZURE_CLIENT_ID }}
+          service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant: ${{ secrets.secrets.AZURE_TENANT_ID }}
+          registry: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
+          repository: ${{ secrets.CONTAINER_NAME }}
+          image:  ${{ secrets.CONTAINER_NAME }}
+          folder: app
+          dockerfile: app/Dockerfile
+          branch: main
+          tag: ${{ github.sha }}
  
 
 
-      -  name: Build and push image to ACR
-         uses: azure/CLI@v1
-         with:
-           azcliversion: 2.30.0
-           inlineScript: |
-             pwd
-             az account show
-             az acr build --image ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ secrets.AZURE_CONTAINER_REGISTRY }} -g ${{ secrets.RESOURCE_GROUP }} .
+      # -  name: Build and push image to ACR
+      #    uses: azure/CLI@v1
+      #    with:
+      #      azcliversion: 2.30.0
+      #      inlineScript: |
+      #        pwd
+      #        az account show
+      #        az acr build --image ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ secrets.AZURE_CONTAINER_REGISTRY }} -g ${{ secrets.RESOURCE_GROUP }} .
 
 
       # # Builds and pushes an image up to your Azure Container Registry
