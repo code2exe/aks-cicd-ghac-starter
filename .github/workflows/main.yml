@@ -77,7 +77,7 @@ jobs:
           action: deploy
           strategy: blue-green
           manifests: |
-            manifests/deployment.yml
-            manifests/service.yml
+            app/manifests/deployment.yml
+            app/manifests/service.yml
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
