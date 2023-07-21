@@ -52,6 +52,7 @@ jobs:
          with:
            azcliversion: 2.30.0
            inlineScript: |
+             pwd
              az account show
              az acr build --image ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ secrets.AZURE_CONTAINER_REGISTRY }} -g ${{ secrets.RESOURCE_GROUP }} .
 
