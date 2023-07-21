@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gacoapp
-        image: oagacaks.azurecr.io/gacoapp/gacoapp:v1
+        image: crgacoa.azurecr.io/gacoapp/gacoapp:latest
         ports:
         - containerPort: 3000
         resources:
