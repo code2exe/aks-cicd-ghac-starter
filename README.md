@@ -34,7 +34,7 @@ repo = "<Repository Name>"
 repo_fullname = "<'Username' or 'Org_Name'>/<Repository Name>"
 ```
 
-To retrieve the `subscription_id` , `tenant_id` , `client_id` , & `client_secret` :
+To retrieve the `subscription_id` , `tenant_id` , `client_id` , and `client_secret` :
 
 Firstly, login to the Azure CLI using:
 
