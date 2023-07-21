@@ -2,7 +2,7 @@
 
 This project was built to demonstrate how to setup CI/CD with GitHub Actions and Azure Kubernetes Services. 
 
-It contains a simple NodeJS app which will be packaged into a container image and deployed into an AKS Cluster by GitHub Actions. 
+It contains a simple NodeJS app which will be packaged into a container image and deployed into an AKS Cluster using GitHub Actions. 
 
 It also contains the Terraform script which will create the base infrastructure which consists of an Azure Container Registry instance and the AKS Cluster (with monitoring enabled). It will also create the various GitHub Actions Secrets as seen in `infra/secrets.tf` which would enable our workflows execute successfully.
 
@@ -11,7 +11,7 @@ It also contains the Terraform script which will create the base infrastructure 
 
 ## How To Use It
 
-You will first fork this repository into your GitHub account and then clone and navigate to the `infra` directory:
+You will fork this repository into your GitHub account and then clone it to your PC and navigate to the `infra` directory:
 
 ```bash
 git clone https://github.com/<username>/aks-cicd-ghac-starter.git
