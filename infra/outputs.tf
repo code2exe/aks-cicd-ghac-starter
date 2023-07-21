@@ -8,10 +8,6 @@ output "kube_config" {
   sensitive = true
 }
 
-# output "vault_uri" {
-#   value = azurerm_key_vault.aks.vault_uri
-# }
-
 output "cluster_egress_ip" {
   value = data.azurerm_public_ip.example.ip_address
 }
