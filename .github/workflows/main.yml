@@ -44,7 +44,7 @@ jobs:
           repository: ${{ secrets.CONTAINER_NAME }}
           image:  ${{ secrets.CONTAINER_NAME }}
           folder: app
-          dockerfile: app/Dockerfile
+          # dockerfile: app/Dockerfile
           branch: main
           tag: ${{ github.sha }}
  
