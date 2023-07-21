@@ -2,11 +2,7 @@ variable "subscription_id" {
   type        = string
   description = "Azure Subscription ID"
 }
-# variable "tag_name" {
-#   type        = string
-#   description = "Environment Tag Name"
-#   default     = "demo"
-# }
+
 variable "tenant_id" {
   description = "Azure Tenant ID"
 }
@@ -29,4 +25,17 @@ variable "location" {
 variable "prefix" {
   type = string
   description = "Naming Prefix"
+}
+variable "pa_token" {
+  description = "Token for GitHub"
+}
+
+variable "repo" {
+  description = "Your repository name"
+}
+variable "repo_fullname" {
+  description = "Your repository fullname"
+}
+variable "container_name" {
+  description = "Container Name"
 }

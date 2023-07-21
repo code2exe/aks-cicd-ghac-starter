@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "aks" {
-  name     = "${var.prefix}-RG"
+  name     = "${var.prefix}-rg"
   location = var.location
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_log_analytics_solution" "example" {
 }
 
 resource "azurerm_container_registry" "example" {
-  name                = "croagac"
+  name                = "cr-${var.prefix}"
   resource_group_name = azurerm_resource_group.aks.name
   location            = azurerm_resource_group.aks.location
   sku                 = "Standard"
