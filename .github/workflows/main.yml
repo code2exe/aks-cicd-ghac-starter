@@ -1,11 +1,12 @@
 name: Build and deploy an app to AKS
 on:
   push:
-    branches:
-      - main 
-    # paths:
-    #   - "app/**"
-  # workflow_dispatch:
+    # branches:
+    #   - main 
+    paths:
+      - "app/**"
+      - "infra/k8s/**"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -77,7 +78,7 @@ jobs:
           action: deploy
           strategy: basic
           manifests: |
-            app/manifests/deployment.yml
-            app/manifests/service.yml
+            infra/k8s/deployment.yml
+            infra/k8s/service.yml
           images: |
             ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}/${{ secrets.CONTAINER_NAME }}:${{ github.sha }}
