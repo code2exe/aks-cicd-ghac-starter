@@ -95,9 +95,9 @@ This command will output 5 values:
 
 These values map to the Terraform variables like so:
 
-- **`[appId](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#appId)`** is the **`client_id`** defined above.
-- **`[password](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#password)`** is the **`client_secret`** defined above.
-- **`[tenant](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#tenant)`** is the **`tenant_id`** defined above.
+- `appId` is the `client_id` defined above.
+- `password` is the `client_secret` defined above.
+- `tenant` is the `tenant_id` defined above.
 
 Now that you have set up those values, you will do the following in the `infra` directory
 
