@@ -75,9 +75,9 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          strategy: blue-green
+          strategy: basic
           manifests: |
             app/manifests/deployment.yml
             app/manifests/service.yml
           images: |
-            ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:${{ github.sha }}
+            ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}/${{ secrets.CONTAINER_NAME }}:${{ github.sha }}
