@@ -19,3 +19,7 @@ provider "azurerm" {
 provider "local" {
   # Configuration options
 }
+
+# provider "azuread" {
+#   # tenant_id = "02e1f97c-9e6e-42ed-8c42-dc604561bfa9"
+# }
