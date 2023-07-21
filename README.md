@@ -98,9 +98,9 @@ These values map to the Terraform variables like so:
 
 The `pa_token` can be created on the Developer Settings of your GitHub Account. 
 
-Depending on your needs, you should only create fine-grained tokens and give it permissions to ‘Read and write’ Secrets only
+> Depending on your needs, you may want tp create fine-grained tokens and give it permissions to ‘Read and write’ Secrets only
 
-![Untitled](images/Untitled.png)
+![Untitled](docs/images/Untitled.png)
 
 
 Now that you have set up those values, you will do the following in the `infra` directory
@@ -113,7 +113,7 @@ terraform apply
 
 When the infrastructure has been created, you can then visit your repository and run the workflow on the Actions tab as shown below:
 
-![Untitled](images/Untitled%201.png)
+![Untitled](docs/images/Untitled%201.png)
 
 > Note: This workflow is also configured to run when there are changes to any of the `app/**` and `infra/k8s/**` paths
 >
