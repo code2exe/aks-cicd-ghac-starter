@@ -80,4 +80,4 @@ jobs:
             app/manifests/deployment.yml
             app/manifests/service.yml
           images: |
-            ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+            ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:${{ github.sha }}
