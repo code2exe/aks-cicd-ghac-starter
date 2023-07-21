@@ -4,18 +4,21 @@ This project was built to demonstrate how to setup CI/CD with GitHub Actions and
 
 It contains a simple NodeJS app which will be packaged into a container image and deployed into an AKS Cluster by GitHub Actions. 
 
-It also contains the Terraform script which will create the base infrastructure which consists an Azure Container Registry instance, the AKS Cluster (with monitoring enabled). It will also create the various GitHub Actions Secrets as seen in `infra/secrets.tf`
+It also contains the Terraform script which will create the base infrastructure which consists of an Azure Container Registry instance and the AKS Cluster (with monitoring enabled). It will also create the various GitHub Actions Secrets as seen in `infra/secrets.tf` which would enable our workflows execute successfully.
 
-This project assumes that you have a GitHub account and to use it:
 
-You will first fork this repository into your GitHub account and then clone and change to the `infra` directory:
+> This project assumes that you have an active Azure subscription and a GitHub account
+
+## How To Use It
+
+You will first fork this repository into your GitHub account and then clone and navigate to the `infra` directory:
 
 ```bash
 git clone https://github.com/<username>/aks-cicd-ghac-starter.git
 cd aks-cicd-ghac-starter/infra
 ```
 
-You now have to create a `terraform.tfvars` file annd fill in the following details: 
+You will create a `terraform.tfvars` file and fill in the following details: 
 
 ```bash
 subscription_id = "<Subscription ID>"
@@ -29,12 +32,6 @@ container_name = "<Container Name>"
 repo = "<Repository Name>"
 repo_fullname = "<'Username' or 'Org_Name'>/<Repository Name>"
 ```
-
-The `pa_token` can be created on the Developer Settings of your GitHub Account. 
-
-Depending on your needs, you should only create fine-grained tokens and give it permissions to ‘Read and write’ Secrets only
-
-![Untitled](images/Untitled.png)
 
 To retrieve the `subscription_id` , `tenant_id` , `client_id` , & `client_secret` :
 
@@ -98,6 +95,13 @@ These values map to the Terraform variables like so:
 - `appId` is the `client_id` defined above.
 - `password` is the `client_secret` defined above.
 - `tenant` is the `tenant_id` defined above.
+
+The `pa_token` can be created on the Developer Settings of your GitHub Account. 
+
+Depending on your needs, you should only create fine-grained tokens and give it permissions to ‘Read and write’ Secrets only
+
+![Untitled](images/Untitled.png)
+
 
 Now that you have set up those values, you will do the following in the `infra` directory
 
