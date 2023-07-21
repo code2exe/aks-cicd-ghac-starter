@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gacoapp
+  labels:
+    app: gacoapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gacoapp
+  template:
+    metadata:
+      labels:
+        app: gacoapp
+    spec:
+      containers:
+      - name: gacoapp
+        image: oagacaks.azurecr.io/gacoapp/gacoapp:v1
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        readinessProbe: # is the container ready to receive traffic?
+          httpGet:
+            port: 3000
+            path: /health
+        livenessProbe: # is the container healthy?
+          httpGet:
+            port: 3000
+            path: /health
