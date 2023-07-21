@@ -2,7 +2,7 @@ data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "aks" {
   name     = "${var.prefix}-RG"
-  location = "UK South"
+  location = var.location
 }
 
 
@@ -44,7 +44,7 @@ resource "azurerm_log_analytics_solution" "example" {
 }
 
 resource "azurerm_container_registry" "example" {
-  name                = "oagacaks"
+  name                = "croagac"
   resource_group_name = azurerm_resource_group.aks.name
   location            = azurerm_resource_group.aks.location
   sku                 = "Standard"
@@ -94,9 +94,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   location            = azurerm_resource_group.aks.location
   resource_group_name = azurerm_resource_group.aks.name
   dns_prefix          = "${var.prefix}"
-  node_resource_group = "${var.prefix}-Node-RG"
-  image_cleaner_enabled = true
-  image_cleaner_interval_hours = 72
+  node_resource_group = "${var.prefix}-node-rg"
   local_account_disabled = false
   kubernetes_version  = data.azurerm_kubernetes_service_versions.current.latest_version
   http_application_routing_enabled = true
@@ -119,7 +117,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
     vm_size    = "Standard_B2s"
     os_sku = "Mariner"
-    os_disk_size_gb = 50
+    os_disk_size_gb = 32
     vnet_subnet_id = azurerm_subnet.aks.id
   }
 

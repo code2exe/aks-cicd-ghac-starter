@@ -23,9 +23,9 @@ variable "client_secret" {
 #   type = string
 #   description = "Azure Admin ID"
 # }
-# variable "location" {
-#   description = "Azure East location"
-# }
+variable "location" {
+  description = "Azure Location"
+}
 variable "prefix" {
   type = string
   description = "Naming Prefix"
