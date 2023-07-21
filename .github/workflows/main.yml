@@ -2,10 +2,11 @@ name: Build and deploy an app to AKS
 
 on:
   push:
-    branches: [main]
-    paths:
-      - "app/aks-nodejs/**"
-  workflow_dispatch:
+    branches:
+      - main
+    # paths:
+    #   - "app/aks-nodejs/**"
+  # workflow_dispatch:
 
 # env:
 #   AZURE_CONTAINER_REGISTRY: "your-azure-container-registry"
