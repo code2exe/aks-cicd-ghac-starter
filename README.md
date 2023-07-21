@@ -4,7 +4,7 @@ This project was built to demonstrate how to setup CI/CD with GitHub Actions and
 
 It contains a simple NodeJS app which will be packaged into a container image and deployed into an AKS Cluster by GitHub Actions. 
 
-It also contains the Terraform script which will create the base infrastructure which consists an Azure Container Registry instance, the AKS Cluster (with monitoring enabled) and create the various GitHub Actions Secrets as seen in `infra/secrets.tf`
+It also contains the Terraform script which will create the base infrastructure which consists an Azure Container Registry instance, the AKS Cluster (with monitoring enabled). It will also create the various GitHub Actions Secrets as seen in `infra/secrets.tf`
 
 This project assumes that you have a GitHub account and to use it:
 
