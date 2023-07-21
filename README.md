@@ -7,7 +7,7 @@ It contains a simple NodeJS app which will be packaged into a container image an
 It also contains the Terraform script which will create the base infrastructure which consists of an Azure Container Registry instance and the AKS Cluster (with monitoring enabled). It will also create the various GitHub Actions Secrets as seen in `infra/secrets.tf` which would enable our workflows execute successfully.
 
 
-> This project assumes that you have an active Azure subscription and a GitHub account
+> This project assumes that you have an active Azure subscription and a GitHub account with Azure Cli and Terraform installed on your PC
 
 ## How To Use It
 
@@ -104,8 +104,6 @@ Depending on your needs, you should only create fine-grained tokens and give it 
 
 
 Now that you have set up those values, you will do the following in the `infra` directory
-
-(This assumes you have already downloaded and installed Terraform on your workstation)
 
 ```bash
 terraform init
