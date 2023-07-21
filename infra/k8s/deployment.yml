@@ -9,11 +9,18 @@ spec:
   selector:
     matchLabels:
       app: gacoapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
   template:
     metadata:
       labels:
         app: gacoapp
     spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
       containers:
       - name: gacoapp
         image: crgacoa.azurecr.io/gacoapp/gacoapp:latest
@@ -22,6 +29,7 @@ spec:
         resources:
           requests:
             cpu: 250m
+            memory: 128Mi
           limits:
             cpu: 1000m
             memory: 512Mi

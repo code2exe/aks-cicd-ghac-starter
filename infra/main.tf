@@ -115,10 +115,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
     min_count = 1
     name       = "system"
     orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
-    vm_size    = "Standard_B2s"
+    vm_size    = "Standard_DS2_v2"
     os_sku = "Mariner"
     os_disk_size_gb = 32
     vnet_subnet_id = azurerm_subnet.aks.id
+    temporary_name_for_rotation = var.prefix
   }
 
   identity {
@@ -143,8 +144,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   name                  = "user"
   mode = "User"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = "Standard_B2s"
-  node_count            = 2
+  vm_size               = "Standard_DS2_v2"
+  node_count            = 1
   os_sku = "Mariner"
   os_disk_size_gb = 128
   orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
