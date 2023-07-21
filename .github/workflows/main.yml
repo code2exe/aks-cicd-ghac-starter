@@ -39,7 +39,7 @@ jobs:
         with:
           service_principal: ${{ secrets.AZURE_CLIENT_ID }}
           service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
-          tenant: ${{ secrets.secrets.AZURE_TENANT_ID }}
+          tenant: ${{ secrets.AZURE_TENANT_ID }}
           registry: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
           repository: ${{ secrets.CONTAINER_NAME }}
           image:  ${{ secrets.CONTAINER_NAME }}
