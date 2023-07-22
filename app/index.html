@@ -20,15 +20,25 @@
               Basic App to demonstrate the process of automatically deploying containers on Kubernetes</p>
           </div>
           <div class="text-center">
-            <img src="https://getwallpapers.com/wallpaper/full/5/7/6/82493.jpg" alt="batman-logo" />
+            <img src="batman-head-clipart-md.png" alt="batman-logo" />
           </div>
-
-          <!-- <div class="text-center">
-            <p>Author:</p>
+          <div class="text-center">
             <div class="text-center">
-              <a href="https://twitter.com/avik6028">@avik6028</a>
+              <a id="year-link" href="#">Current Year</a>
             </div>
-          </div> -->
+          </div>
+          
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+            $(document).ready(function() {
+              // Get the current year
+              var currentYear = new Date().getFullYear();
+              
+              // Update the href attribute with the current year
+              $("#year-link").attr("href", "#" + currentYear);
+              $("#year-link").text(currentYear); // Optional: Update the link text to display the current year
+            });
+          </script>
         </div>
       </div>
     </div>
