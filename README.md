@@ -30,8 +30,8 @@ prefix = "<Prefix>"
 location = "<Location>"
 pa_token = "<GitHub Personal Access Token>"
 container_name = "<Container Name>"
-repo = "<Repository Name>"
-repo_fullname = "<'Username' or 'Org_Name'>/<Repository Name>"
+repo = "aks-cicd-ghac-starter"
+repo_fullname = "<'Username' or 'Org_Name'>/aks-cicd-ghac-starter"
 ```
 
 To retrieve the `subscription_id` , `tenant_id` , `client_id` , and `client_secret` :
@@ -76,8 +76,9 @@ az account set --subscription="xxxxxxxxxxxxxxxx"
 We can now create the Service Principal which will have permissions to manage resources in the specified Subscription using the following command:
 
 ```
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxxxxx"
+az ad sp create-for-rbac --role="Owner" --scopes="/subscriptions/xxxxxxxxxxx"
 ```
+> Assigning our Service Principal an 'Owner' role is overly permissive but it is required to enable us assign a requied role to our AKS Cluster
 
 This command will output 5 values:
 
@@ -119,3 +120,13 @@ When the infrastructure has been created, you can then visit your repository and
 > Note: This workflow is also configured to run when there are changes to any of the `app/**` and `infra/k8s/**` paths
 >
 
+
+To be able to get the IP Address of the Load Balancer, run the following:
+> This assumes you have downloaded and set up kubectl and kubelogin on your PC
+
+```bash
+az aks get-credentials --name `<Cluster Name>` -g `<Resource Group>` --admin
+
+terraform plan
+terraform apply
+```
